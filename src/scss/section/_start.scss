@@ -1,0 +1,35 @@
+.start-wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding:0 56.5px;
+}
+.start-logo{
+    display: block;
+    width: 141.5px;
+    height: 91px;
+    margin-bottom: 182.66px;
+}
+.login-button{
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    padding: 12px 55px;
+    background-color: #E9E9E9;
+    color: #9F9E9E;
+    margin-bottom: 17px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.signup-button{
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    padding: 12px 55px;
+    background-color: #333333;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 700;
+}

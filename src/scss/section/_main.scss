@@ -1,0 +1,115 @@
+.main-wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+    .tms-logo{
+        display: block;
+        width: 55px;
+        height: 23px;
+        margin-bottom: 36px;
+    }
+    .title{
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        color: #000000;
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 16px;
+        margin-left: 20px;
+    }
+    //실시간 뉴스 기사
+    .live-wrap{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow: hidden;
+        width: 100%;
+        overflow-x: auto;
+        margin-bottom: 42px;
+        -ms-overflow-style:none; /* IE and Edge */
+        scrollbar-width:none;
+        .live-content-wrap{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 268px;
+            height: 247px;
+            background-color: #eaeaea;
+            border-radius: 16px;
+            margin-right: 20px;
+            flex-shrink: 0;
+            position: relative;
+            
+            .live-content-image{
+                height: 165px;
+                border-radius: 16px 16px 0 0;
+            }
+            .live-content-title-wrap{
+                padding:10px 15px;
+                height:100%;
+            }
+            h1{
+                font-size: 14px;
+                font-weight: 700;
+                color: #000000;
+                margin-bottom: 10px;
+            }
+            p{
+                font-size: 11px;
+                font-weight: 400;
+                color: #8d8d8d;
+                position: absolute;
+                left: 15px;
+                bottom: 15px;
+            }
+        }
+    }
+    //추천 기사
+    .recommend-wrap{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow: hidden;
+        width: 100%;
+        overflow-x: auto;
+        margin-bottom: 100px;
+        -ms-overflow-style:none; 
+        scrollbar-width:none;
+        .recommend-content-wrap{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 157px;
+            height: 220px;
+            background-color: #eaeaea;
+            border-radius: 10px;
+            margin-right: 10px;
+            flex-shrink: 0;
+            .recommend-content-image{
+                height: 100%;
+                max-height: 140px;
+                border-radius: 10px 10px 0 0;
+            }
+            .recommend-content-title-wrap{
+                padding:10px 15px
+           
+            }
+            h1{
+                font-size: 13px;
+                font-weight: 700;
+                color: #000000;
+                margin-bottom: 10px;
+            }
+            p{
+                font-size: 11px;
+                font-weight: 400;
+                color: #8d8d8d;
+            }
+        }
+    }
+    
+}

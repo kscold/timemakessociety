@@ -1,0 +1,112 @@
+
+.signup-header-wrap {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px;
+    margin-bottom: 35px;
+
+    .backward {
+        display: block;
+        width: 27.92px;
+        height: 27.92px;
+    }
+
+    .signup-header {
+        font-size: 18px;
+        font-weight: 700;
+
+    }
+}
+
+.signup-header-wrap::after {
+    content: '';
+    display: block;
+}
+
+.signup-content-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 15px;
+
+    //height: 80vh;
+    label {
+        color: #000000;
+        font-size: 14.75px;
+        font-weight: 700;
+        margin-bottom: 6.14px;
+    }
+
+    input {
+        width: 100%;
+        height: 48px;
+        border: 1px solid #d9d9d9;
+        border-radius: 4px;
+        font-size: 12.65px;
+        font-weight: 400;
+        padding: 16.5px 7.3px;
+        color: #adadad;
+        position: relative;
+        background-size: 25px;
+        background-position: 100% 50%;
+        background-repeat: no-repeat;
+    }
+
+    .signup-button {
+        width: 100%;
+        height: 48px;
+        background-color: #333333;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 700;
+        border-radius: 8px;
+        padding: 12px 78.5px;
+        
+    }
+
+    .nickname-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 7px;
+
+        .overlap {
+            width: 70px;
+            height: 28.5px;
+            background-color: #f2f3f5;
+            color: #adadad;
+            border: 1px solid #d9d9d9;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        .nickname-label {
+            color: #000000;
+            font-size: 14.75px;
+            font-weight: 700;
+            margin-bottom: 0;
+        }
+    }
+
+}
+
+.signup-content-wrap input:nth-of-type(2) {
+    margin-bottom: 5px;
+}
+
+.signup-content-wrap input:nth-of-type(2n-1) {
+    margin-bottom: 16.25px;
+}
+
+.signup-content-wrap input:nth-of-type(4) {
+    margin-bottom: 13.15px;
+}
+
+.signup-content-wrap input:nth-of-type(6){
+    margin-bottom: 2rem;
+}

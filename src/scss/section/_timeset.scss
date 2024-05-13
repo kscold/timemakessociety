@@ -1,0 +1,56 @@
+.timeset-wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 110px 18px 84px 18px;
+    h1{
+        font-size: 18px;
+        font-weight: 700;
+        color: #000000;
+        margin-bottom: 10px;
+    }
+    p{
+        font-size: 12px;
+        font-weight: 500;
+        color: #7c7c7c;
+        margin-bottom: 36px;
+    }
+    .time{
+        font-size: 40px;
+        font-weight: 700;
+        color: #0078ff;
+        margin-bottom: 36px;
+    }
+    .timeset-stick-wrap{
+        margin-bottom: 84px;
+        height:370px;
+        .timeset-stick{
+            display: block;
+            width: 140px;
+            height: 27px;
+            background-color: #e7e7e7;
+            margin-bottom: 2px;
+            transition: all 500ms ease-in-out;
+            &.selected {
+                background-color: #0078FF;
+            }
+        }
+        
+    }
+    
+    button{
+        background-color: #333333;
+        color: #ffffff;
+        border-radius: 8px;
+        display: block;
+        width: 100%;
+        height: 48px;
+    }
+}
+.timeset-wrap .timeset-stick:first-of-type{
+    border-radius: 50px 50px 0 0;
+}
+.timeset-wrap .timeset-stick:last-of-type{
+    border-radius: 0 0 50px 50px;
+}
