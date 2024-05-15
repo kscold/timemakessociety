@@ -1,7 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import infoCircle from '../../assets/mypage/info-circle-line.svg';
-function Bar({userInfo,dummydata}) {
+function Bar({readTimeBar,setReadTimeBar,userInfo,dummydata}) {
+  // const convertReadTime = (time)=>{
+  //   const [hour,minutes,seconds] = time.split(':');
+  //   const totalTime = parseInt(hour)*3600 + parseInt(minutes)*60 + parseInt(seconds)
+    
+  //   return totalTime
+  // }
+  // const updatedReadTime =()=>{
+  //   let totalTime = readTimeBar.map((item)=>({
+  //     ...item,
+  //     time:convertReadTime(item.time),
+  //   }))
+  //   setReadTimeBar(totalTime);
+  // }
+  // useEffect(()=>{
+  //   updatedReadTime();
+  // },[])
+  // console.log
   if(!userInfo){
     return <div>loading...</div>
   }
@@ -15,7 +32,7 @@ function Bar({userInfo,dummydata}) {
           <img src={infoCircle} alt='infoCircle-image' />
         </div>
         <div className='bar-wrap'>
-          {dummydata.map((data,index)=>(
+          {readTimeBar?.map((data,index)=>(
              <div key={index} className='individual-wrap'>
                 <span className='bar'>{data.time}</span>
                 <span className='date'>{data.category}</span>

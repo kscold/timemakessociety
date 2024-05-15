@@ -9,6 +9,7 @@ import FeedContent from './FeedContent';
 import FeedHeader from './FeedHeader';
 import TimeModal from '../../Modal/TimeModal';
 import CommentModal from '../../Modal/CommentModal';
+import FeedTimeModal from './FeedTimeModal';
 
 function FeedDetail({ feedType }) {
   //feedType은 리덕스로 관리 -> 실시간, 추천 , 스크랩을 feedtype을 이용해서 렌더링
@@ -22,6 +23,9 @@ function FeedDetail({ feedType }) {
   const [formatReadTime, setFormatReadTime] = useState('');
   const [scrabState, setScrabState] = useState();
   const [loading,setLoading] = useState(true);//api 호출할 때 렌더링 과정중 로딩표현
+  const [position, setPosition] = useState(window.pageYOffset);
+  const [visible, setVisible] = useState(true);
+
   const { name,id } = useParams();
   const memberId = localStorage.getItem('memberId');
   const getTime = localStorage.getItem('readTime');
@@ -105,7 +109,18 @@ function FeedDetail({ feedType }) {
     }
     
   }
-
+//스크롤 발생시 헤더 숨기고 보여주기
+  useEffect(() => {
+    const handleScroll = () => {
+      const moving = window.pageYOffset;
+      setVisible(position > moving);
+      setPosition(moving);
+  	}
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [position]);
   useEffect(() => {
     
     if (feedState) {
@@ -190,7 +205,8 @@ function FeedDetail({ feedType }) {
   // console.log("readTime:",formatReadTime)
   return (
     <>
-      <FeedHeader name={name} handleGoBack={handleGoBack} commentState={commentState} />
+      {visible ? <FeedHeader name={name} handleGoBack={handleGoBack} commentState={commentState} /> : ''}
+      <FeedTimeModal formatReadTime={formatReadTime}/>
       <FeedContent loading={loading} likeStates={likeStates} setLikeStates={setLikeStates} handleLike={handleLike} feedState={feedState} feedContent={feedContent} contentSize={contentSize} commentState={commentState} handleComment={() => handleComment(true)} />
       <TimeModal />
       {commentState ? <CommentModal id={id} setCommentState={setCommentState} articleId={id} handleComment={() => handleComment(false)} /> : ''}

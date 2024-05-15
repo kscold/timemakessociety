@@ -9,48 +9,9 @@ import Profile from './Profile';
 import { loginActions } from '../../store/Login';
 import option from '../../assets/mypage/option.svg';
 import backward from '../../assets/backward.svg';
-import infoCircle from '../../assets/mypage/info-circle-line.svg';
 import Bar from './Bar';
 import Top from './Top';
 import TimeModal from '../Modal/TimeModal';
-const dummydata = [
-  {
-    date:"mon",
-    summary:"3:00",
-    original:'6분',
-  },
-  {
-    date:"tue",
-    summary:"6:00",
-    original:'6분',
-  },
-  {
-    date:"wed",
-    summary:"8:00",
-    original:'6분',
-  },
-  {
-    date:"thu",
-    summary:"4:00",
-    original:'6분',
-  },
-  {
-    date:"fri",
-    summary:"15:00",
-    original:'6분',
-  },
-  {
-    date:"sat",
-    summary:"6:00",
-    original:'6분',
-  },
-  {
-    date:"sun",
-    summary:"4:00",
-    original:'6분',
-  },
-];
-
 
 function Mypage() {
   const [userInfo, setUserInfo] = useState(null);
@@ -82,7 +43,23 @@ function Mypage() {
     navigate('/login');
   }
   
-  
+  // 누적시간 string -> number로 바꾸는 작업
+  // 왜 안되지 시발거
+  const convertReadTime = (time)=>{
+    
+    const [hour,minutes,seconds] = time.split(':');
+   
+    const totalTime = parseInt(hour)*3600 + parseInt(minutes)*60 + parseInt(seconds)
+    console.log("hour",totalTime)
+    return totalTime
+  }
+  const updatedReadTime =()=>{
+    const totalTime = readTimeBar?.map((item)=>({
+      ...item,
+      'time':convertReadTime(item.time),
+    }))
+    setReadTimeBar(totalTime);
+  }
 
   useEffect(() => {
     // -- userInfo api 통신 코드 -- 
@@ -103,8 +80,13 @@ function Mypage() {
       }
     }
     fetchUserInfo();
+    updatedReadTime();
   }, [])
-  // 
+  
+  
+  console.log('read time',readTimeBar)
+  
+  
   return (
     <>
       <div className='mypage-header-wrap'>
@@ -113,7 +95,7 @@ function Mypage() {
         <img src={option} className='option' alt='option-image' />
       </div>
       <Profile userInfo={userInfo} handleLogout={handleLogout}/>
-      <Bar userInfo={userInfo} dummydata={readTimeBar}/>
+      <Bar userInfo={userInfo} readTimeBar={readTimeBar} setReadTimeBar={setReadTimeBar}/>
       <Top top4data={top4Data}/>
       <TimeModal/>
       <Footer footerState={'user'} />
