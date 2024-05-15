@@ -6,6 +6,7 @@ function UpdateModal(
       event.preventDefault();
       handleUpdate(currentCommentId,newComment)
     }
+    
   return (
     <>
       <div className='update-modal-bg' onClick={() => { setGotoUpdate(false); setUpdateButton(false) }} />
@@ -23,7 +24,7 @@ function UpdateModal(
             </>}
           </>
           :
-          <button>신고하기</button>
+          <button onClick={()=>setGotoUpdate(false)}>신고하기</button>
         }
 
       </div>

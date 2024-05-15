@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 
 import like from '../../../assets/feedDetail/like.svg';
+import Filllike from '../../../assets/feedDetail/fill-likes.png';
 import comment from '../../../assets/feedDetail/comment.svg';
+import FeedLoading from './FeedLoading';
 import { Link } from 'react-router-dom';
-function FeedContent({handleLike,feedContent,feedState,contentSize,commentState,handleComment}) {
+function FeedContent({loading,likeStates,setLikeStates,handleLike,feedContent,feedState,contentSize,commentState,handleComment}) {
   
   return (
     <div className='feedDetail-content-wrap'>
@@ -22,16 +24,19 @@ function FeedContent({handleLike,feedContent,feedState,contentSize,commentState,
           {feedContent.reporter}
         </p>
         <div className='like-comment-wrap'>
-          <img src={like} alt='like-image' onClick={()=>handleLike()}/>
-          <span>{feedContent.like}</span>
-          <img src={comment} alt='comment-image' onClick={handleComment} />
-          <span>{feedContent.comment_count}</span>
+          <img src={likeStates?.liked ? Filllike : like} alt='like-image' onClick={()=>handleLike()}/>
+          <span>{likeStates?.likeCount}</span>
+          <div onClick={handleComment} className='comment'>
+            <img src={comment} alt='comment-image'/>
+            <span>댓글보기</span>
+          </div>
+          
         </div>
-        <div className='feedDetail-content-image' style={{ backgroundImage: `${feedContent.image}` }}>
+        <div className='feedDetail-content-image' style={{backgroundImage:`url(${feedContent.image})`}}>
 
         </div>
         <p className={`${contentSize ? 'feedDetail-content-thebody active' : 'feedDetail-content-thebody'}`}>
-          {feedContent.content}
+          {loading&&feedState? <FeedLoading/> :feedContent.content}
         </p>
       </div>
   )

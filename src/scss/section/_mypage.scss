@@ -135,7 +135,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 37px;
+                width: 32px;
                 height: 80px;
                 border-radius: 8px;
                 background-color: #70B3FF;
@@ -192,13 +192,14 @@
             font-weight: 600;
         }
     }
-    .circle:first-of-type{
+    .circle:nth-of-type(1){
         z-index: 5;
         background-color: #000000;
         left: 12px;
         bottom: 90px;
         width: 155px;
         height: 155px;
+        
     }
     .circle:nth-of-type(2){
         background-color: #4e4b4b;
@@ -228,7 +229,7 @@
             font-weight: 600;
         }
     }
-    .circle:last-of-type{
+    .circle:nth-of-type(4){
         position: absolute;
         background-color: #b1b1b1;
         left: 297px;

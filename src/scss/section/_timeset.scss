@@ -10,6 +10,24 @@
         color: #000000;
         margin-bottom: 10px;
     }
+    .timeout-time{
+        font-size: 30px;
+        font-weight: 700;
+        color: #006FFD;
+        .timeout-save{
+            color: black;
+            font-size: 20px;
+        }
+    }
+    .timeout-name{
+        font-size: 20px;
+        margin-bottom: 5px;
+        font-weight: 700;
+        .timeout-nickname{
+            color: black;
+            
+        }
+    }
     p{
         font-size: 12px;
         font-weight: 500;

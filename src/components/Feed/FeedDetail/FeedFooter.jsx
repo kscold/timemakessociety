@@ -2,7 +2,8 @@ import React from 'react'
 
 import share from '../../../assets/feedFooter/share.svg';
 import scrab from '../../../assets/feedFooter/scrab.svg';
-function FeedFooter({handleFeedState,handleContentSizeUpDown,feedState}) {
+import scrabFill from '../../../assets/feed/bookmark-fill.svg';
+function FeedFooter({scrabState,handleScrab,handleFeedState,handleContentSizeUpDown,feedState}) {
   return (
     <div className='feedDetail-footer-wrap'>
         <div className='letter-wrap' onClick={handleContentSizeUpDown}>
@@ -19,7 +20,7 @@ function FeedFooter({handleFeedState,handleContentSizeUpDown,feedState}) {
         </div>
         <div className='feedDetail-footer-image-wrap'>
           <img src={share} className='feedDetail-footer-image' alt='share-image'/>
-          <img src={scrab} className='feedDetail-footer-image' alt='scrab-image'/>
+          <img src={scrabState ? scrabFill : scrab} className='feedDetail-footer-image' alt='scrab-image' onClick={handleScrab}/>
         </div>
     </div>
   )

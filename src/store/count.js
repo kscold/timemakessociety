@@ -1,10 +1,10 @@
 import React from 'react';
 import {createSlice,configureStore} from '@reduxjs/toolkit';
-
+const timer = localStorage.getItem('modifiedTimer');
 const initialTimerState = {
     running:true,
     timer:'',
-    modifiedTimer: 0
+    modifiedTimer: timer
 }
 
 const timerSlice = createSlice({
@@ -17,7 +17,8 @@ const timerSlice = createSlice({
         },
         tick(state){
             if(state.running && state.modifiedTimer>0){
-                state.modifiedTimer--
+                state.modifiedTimer= state.modifiedTimer-60
+                localStorage.setItem('modifiedTimer',state.modifiedTimer)
             }
             
         },

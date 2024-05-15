@@ -4,12 +4,12 @@ import { useDispatch } from 'react-redux';
 import { timerActions } from '../../store/count';
 import axios from 'axios';
 function TimeSet() {
-    const [Time, setTime] = useState();
+    const [Time, setTime] = useState('0:00');
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const memberId = localStorage.getItem('memberId')
     const handleTime = () => {
-        if (Time === 0) {
+        if (Time === '0:00'||Time===null) {
             alert('시간을 설정해주세요!')
         }
         else {
@@ -32,6 +32,7 @@ function TimeSet() {
     const handleStick = (id) => {
         const computedTime = 5 * (12 - id)
         const stringTime = `${computedTime}:00`
+        console.log('time',stringTime)
         const sticks = document.querySelectorAll('.timeset-stick');
         if (Time === stringTime) {
             sticks.forEach((stick, index) => {

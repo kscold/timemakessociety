@@ -35,7 +35,7 @@ function TimeModal() {
         // 시간 만료되면 자동 로그아웃 기능 추가해야함
       
       }
-      //timeFormat()
+      
       return () => clearInterval(id);
     },[isRunning,dispatch])
     useEffect(()=>{

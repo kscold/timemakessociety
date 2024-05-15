@@ -3,32 +3,13 @@ import React, { useEffect, useState } from 'react';
 
 import option from '../../assets/option.svg';
 import profileimage from '../../assets/playing-guitar.png';
-import like from '../../assets/feedDetail/like.svg';
 import UpdateModal from './UpdateModal';
-const dummydata = [
-  {
-    "id": 1,
-    "content": "안녕?",
-    "commentCreatedDate": "20240510 23:46:13",
-    "articleId": "935fbd47-5757-4331-87d3-30b7d1b5623c",
-    "articleTitle": "[뉴공 아카이브]신혜리 뉴스포터 기자: ‘尹 취임 2주년 기자회견’ 외신기자들의 반응은? 트럼프 타임지 인터뷰, ‘32가지 허위 주장’ 팩트체크. 한국 언론자유 15단계 추락…외신은 어떻게 분석했나",
-    "userId": 1,
-    "memberName": "testUser"
-  },
-  {
-    "id": 2,
-    "content": "안녕2",
-    "commentCreatedDate": "20240510 23:51:25",
-    "articleId": "935fbd47-5757-4331-87d3-30b7d1b5623c",
-    "articleTitle": "[뉴공 아카이브]신혜리 뉴스포터 기자: ‘尹 취임 2주년 기자회견’ 외신기자들의 반응은? 트럼프 타임지 인터뷰, ‘32가지 허위 주장’ 팩트체크. 한국 언론자유 15단계 추락…외신은 어떻게 분석했나",
-    "userId": 1,
-    "memberName": "testUser"
-  }
-]
+
 function CommentModal({ id,setCommentState, articleId, handleComment }) {
   const [commentData, setCommentData] = useState([]);
   const [buttonState, setButtonState] = useState('인기순');
   const memberName = localStorage.getItem('memberName');
+  const memberNickName = localStorage.getItem('memberNickName');
   const [newComment, setNewComment] = useState('');
   const [updateListState, setUpdateListState] = useState([]);
   const [goToUpdate, setGotoUpdate] = useState(false);//updateModal 창 띄울지 말지 결정
@@ -42,14 +23,14 @@ function CommentModal({ id,setCommentState, articleId, handleComment }) {
         const response = await axios.get(`/api/comment/${id}`);
         console.log('comment fetch',response.data)
         setCommentData(response.data);
-        //setCommentData(dummydata);
+        
       }
       catch (error) {
         new Error(error)
       }
     }
     fetchComment();
-  }, [buttonState])
+  }, [buttonState,commentData])
   const toggleButton = (title) => {
     setButtonState(title)
   }
@@ -57,7 +38,7 @@ function CommentModal({ id,setCommentState, articleId, handleComment }) {
   const handleOptionToggle = (id,name) => {
     const newOptionState = {}
     commentData.forEach((data, index) => {
-      if (data.id === id && updateListState[data.id]?.state === false) {
+      if (data.id === id ) {
         newOptionState[data.id] = {
           id: data.id,
           state: true
@@ -90,7 +71,7 @@ function CommentModal({ id,setCommentState, articleId, handleComment }) {
     const newId = commentData.length + 1
     setCommentData((preValue) => ([
       {
-        id: newId,
+        //id: newId,
         memberName: memberName,
         content: newComment
       }, ...preValue,
@@ -142,7 +123,7 @@ function CommentModal({ id,setCommentState, articleId, handleComment }) {
   }
   const isMyComment = updateListState[currentCommentId]?.state && memberName === currentCommentName;
    
-    //console.log("name",currentCommentName)
+   // console.log("name",currentCommentName)
   return (
     <>
       <div className='bg-dark' onClick={() => setCommentState(false)} />
@@ -187,7 +168,7 @@ function CommentModal({ id,setCommentState, articleId, handleComment }) {
         <span className='profile' style={{ backgroundImage: `url(${profileimage})` }} />
         <input className='input' placeholder='댓글추가...' name='comment' id='comment' value={newComment} onChange={(event) => setNewComment(event.target.value)} />
         <button type='submit' className='submitButton'>입력</button>
-        {/* <img src={like} className='like' alt='like-image' /> */}
+        
       </form>
 
     </>

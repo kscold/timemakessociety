@@ -6,11 +6,14 @@
     //header
     .feed-header-wrap{
         width: 100%;
+        height: 49px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        background-color: white;
         padding:12px 98px 0px 98px;
         position: relative;
+        
         
         .feed-header{
             position: relative;
@@ -103,8 +106,14 @@
                 }
             }
         }
+        .scrollEnd{
+            margin-bottom: 100px;
+        }
     }
 }
 .feed-wrap .feed-content-wrap .feed-content:last-of-type{
     margin-bottom: 100px;
+}
+@media(min-width:768px) {
+    
 }

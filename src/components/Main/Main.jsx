@@ -104,7 +104,7 @@ function Main() {
       <div className='live-wrap'>
         {console.log("livearticle 길이",liveArticle.length)}
         {liveArticle.map((article, index) => (
-          <Link to={`/feed_detail/${article.id}`} key={article.id}>
+          <Link to={`/feed_detail/${'실시간'}/${article.id}`} key={article.id}>
             <div className='live-content-wrap' >
               <img src={article.image} alt="News Image" className='live-content-image' />
               <div className='live-content-title-wrap'>
@@ -120,7 +120,7 @@ function Main() {
       <h3 className='title'>추천기사</h3>
       <div className='recommend-wrap'>
         {recommendArticle.map((article, index) => (
-          <Link key={article.id} to={`/feed_detail/${article.id}`}>
+          <Link key={article.id} to={`/feed_detail/${'추천'}/${article.id}`}>
             <div key={article.id} className='recommend-content-wrap'>
               <img src={article.image} alt="News Image" className='recommend-content-image' />
               <div className='recommend-content-title-wrap'>

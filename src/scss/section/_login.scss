@@ -29,6 +29,15 @@
     justify-content: center;
     align-items: center;
     padding: 0 45px;
+    .isData{
+        color:#FF6D6D;
+        font-size: 10px;
+        font-weight: 700;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 7px;
+    }
     .login-logo {
         display: block;
         width: 141.5px;
@@ -85,8 +94,8 @@
             height: 24px;
             text-align: center;
             line-height: 24px;
-            background-color: #333333; 
-            color: #ffffff; 
+            //background-color: #333333; 
+            color: #333333; 
         }
     }
     
