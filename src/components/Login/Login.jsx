@@ -30,13 +30,10 @@ function Login() {
     event.preventDefault()
     //-- Api post 연결 code --
     try {
-      const response = await axios.post(
-        "https://kscoldproject.site/api/login",
-        {
-          loginId: enterValue.loginId,
-          password: enterValue.password,
-        }
-      )
+      const response = await axios.post("/api/login", {
+        loginId: enterValue.loginId,
+        password: enterValue.password,
+      })
       console.log(response.data)
       navigate("/entrance")
     } catch (error) {

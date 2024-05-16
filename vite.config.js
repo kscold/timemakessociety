@@ -70,7 +70,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://kscoldproject.site",
+        target: "https://kscoldproject.site:8080",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, "/api"),
       },
