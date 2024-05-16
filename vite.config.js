@@ -153,13 +153,13 @@ export default defineConfig({
     //     },
     //   }),
   ],
-  // server: {
-  //   proxy: {
-  //     "/api": {
-  //       target: "http://kscoldproject.site",
-  //       changeOrigin: true,
-  //       rewrite: (path) => path.replace(/^\/api/, "/api"),
-  //     },
-  //   },
-  // },
+  server: {
+    proxy: {
+      "/api": {
+        target: "https://kscoldproject.site", // HTTPS로 변경
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, "/api"),
+      },
+    },
+  },
 })
