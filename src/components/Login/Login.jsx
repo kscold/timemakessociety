@@ -30,7 +30,7 @@ function Login() {
     event.preventDefault()
     //-- Api post 연결 code --
     try {
-      const response = await axios.post("/api/login", {
+      const response = await axios.post(`/api/login`, {
         loginId: enterValue.loginId,
         password: enterValue.password,
       })

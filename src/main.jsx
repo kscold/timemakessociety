@@ -4,7 +4,6 @@ import App from "./App.jsx"
 import "./index.css"
 import store from "./store/index.js"
 import { Provider } from "react-redux"
-import { register } from "./service-worker"
 // import {PersistGate} from 'redux-persist/integration/react';
 // import {persistStore} from 'redux-persist';
 
@@ -19,5 +18,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </Provider>
   </React.StrictMode>
 )
-
-register()
