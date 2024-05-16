@@ -21,7 +21,7 @@ function FeedContent({loading,likeStates,setLikeStates,handleLike,feedContent,fe
           </span>
         </p>
         <p className='feedDetail-content-reporter'>
-          {feedContent.reporter}
+          {feedContent.publisher}
         </p>
         <div className='like-comment-wrap'>
           <img src={likeStates?.liked ? Filllike : like} alt='like-image' onClick={()=>handleLike()}/>
@@ -36,7 +36,7 @@ function FeedContent({loading,likeStates,setLikeStates,handleLike,feedContent,fe
 
         </div>
         <p className={`${contentSize ? 'feedDetail-content-thebody active' : 'feedDetail-content-thebody'}`}>
-          {loading&&feedState? <FeedLoading/> :feedContent.content}
+          {loading&&feedState? <FeedLoading isSimilar={false}/> :feedContent.content}
         </p>
       </div>
   )

@@ -94,6 +94,7 @@ export default defineConfig({
     react(),
     ViteFaviconsPlugin({
       logo: "public/icons/favicon-196x196.png",
+
       favicons: {
         path: "icons/",
       },

@@ -9,12 +9,27 @@
     align-items: center;
     position: fixed;
     background-color: #ffffff;
-    .backward {
+    .image {
         display: block;
         width: 24px;
         height: 24px;
         margin-right: 10.37px;
     }
+    .foreward-wrap{
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .image-foreward{
+            
+            width: 24px;
+            height: 24px;
+            
+        }
+    }
+   
 
     .feedDetail-headername {
         font-size: 14px;
@@ -22,16 +37,17 @@
         color: #000000;
     }
 
-    ::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 2px;
-        background-color: #cacaca;
-    }
+    
    
+}
+.feedDetail-header-wrap::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #cacaca;
 }
 
 .feedDetail-content-wrap {

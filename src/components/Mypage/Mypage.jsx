@@ -17,7 +17,8 @@ function Mypage() {
   const [userInfo, setUserInfo] = useState(null);
   const [top4Data,setTop4Data]  = useState();
   const [readTimeBar, setReadTimeBar] = useState([]);
-
+  const [newReadData,setNewReadData] = useState([]);
+  const [isLoading,setIsLoading] = useState(true);
   const loginId = localStorage.getItem('loginId');
   const password = localStorage.getItem('password');
   const memberId = localStorage.getItem('memberId');
@@ -45,22 +46,22 @@ function Mypage() {
   
   // 누적시간 string -> number로 바꾸는 작업
   // 왜 안되지 시발거
-  const convertReadTime = (time)=>{
+  const convertReadTime = (time,index)=>{
     
-    const [hour,minutes,seconds] = time.split(':');
-   
-    const totalTime = parseInt(hour)*3600 + parseInt(minutes)*60 + parseInt(seconds)
-    console.log("hour",totalTime)
+    const [hour,minutes,seconds] = time?.split(':');
+    const totalTime = parseInt(hour)*3600 + parseInt(minutes)*60 + parseInt(seconds);
     return totalTime
-  }
+  } 
   const updatedReadTime =()=>{
-    const totalTime = readTimeBar?.map((item)=>({
+    const totalTime = readTimeBar.map((item,index)=>({
       ...item,
-      'time':convertReadTime(item.time),
+      'time':convertReadTime(item.time,index),
     }))
-    setReadTimeBar(totalTime);
+    setNewReadData(totalTime);
+    //setReadTimeBar(totalTime);
   }
-
+  console.log('readTimeBar',newReadData);
+  
   useEffect(() => {
     // -- userInfo api 통신 코드 -- 
     const fetchUserInfo = async() => {
@@ -80,11 +81,16 @@ function Mypage() {
       }
     }
     fetchUserInfo();
-    updatedReadTime();
+    
   }, [])
-  
-  
-  console.log('read time',readTimeBar)
+  useEffect(() => {
+    const updatedReadTime = readTimeBar.map((item, index) => ({
+      ...item,
+      time: convertReadTime(item.time, index),
+    }));
+    setNewReadData(updatedReadTime);
+  }, [readTimeBar]);
+ 
   
   
   return (
@@ -95,7 +101,7 @@ function Mypage() {
         <img src={option} className='option' alt='option-image' />
       </div>
       <Profile userInfo={userInfo} handleLogout={handleLogout}/>
-      <Bar userInfo={userInfo} readTimeBar={readTimeBar} setReadTimeBar={setReadTimeBar}/>
+      <Bar userInfo={userInfo} readTimeBar={newReadData} setReadTimeBar={setReadTimeBar}/>
       <Top top4data={top4Data}/>
       <TimeModal/>
       <Footer footerState={'user'} />

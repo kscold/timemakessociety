@@ -46,6 +46,7 @@ function FeedDetail({ feedType }) {
         "category": feedContent.category,
         "readTime": formatReadTime
       })
+      
       await console.log('읽은시간 post상태:', response.data)
       await console.log('읽은시간누적 post상태:', response2.data)
     }
@@ -54,7 +55,7 @@ function FeedDetail({ feedType }) {
     }
     const accumulateTime = readTime+Number(getTime) ;
     localStorage.setItem('readTime',accumulateTime)
-    navigate(-1);
+    navigate('/home');
   }
   //console.log("feed",feedContent.category)
   const handleFeedState = () => {
@@ -145,8 +146,7 @@ function FeedDetail({ feedType }) {
       const fetchFeedDetail = async () => {
         try {
           const response = await axios.get(`/api/articles/${id}`);
-          const response2 = await axios.get(`/api/articles/similarity/${id}`) ;
-          console.log("response2 data", response2.data);
+          
           setFeedContent(response.data)
           
         }
@@ -184,16 +184,18 @@ function FeedDetail({ feedType }) {
     }
     fetchLike();
   },[likeStates])
-
+//읽는시간 계산
   useEffect(() => {
+    
     const time = setInterval(() => {
       setReadTime((prevTime) => prevTime + 1)
     }, 1000);
-
     if (backWardState) {
       clearInterval(time)
+      
     }
     return () => clearInterval(time)
+    
   }, [backWardState])
   useEffect(() => {
     const minute = Math.floor(readTime / 60);
@@ -205,7 +207,7 @@ function FeedDetail({ feedType }) {
   // console.log("readTime:",formatReadTime)
   return (
     <>
-      {visible ? <FeedHeader name={name} handleGoBack={handleGoBack} commentState={commentState} /> : ''}
+      {visible ? <FeedHeader name={name} id={id} handleGoBack={handleGoBack} commentState={commentState} /> : ''}
       <FeedTimeModal formatReadTime={formatReadTime}/>
       <FeedContent loading={loading} likeStates={likeStates} setLikeStates={setLikeStates} handleLike={handleLike} feedState={feedState} feedContent={feedContent} contentSize={contentSize} commentState={commentState} handleComment={() => handleComment(true)} />
       <TimeModal />

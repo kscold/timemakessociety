@@ -8,7 +8,7 @@ function Top({top4data}) {
             {top4data?.topCategories.map((data, index) => (
                 <div key={index} className='circle'>
                     <p className='percentage'>{data.percentage ? data.percentage : '0'}%</p>
-                    <p className='category'>{data.category ? data.category : '연예'}</p>
+                    <p className='category'>{data.category==='null' ? '' : data.category }</p>
                 </div>
 
             ))}

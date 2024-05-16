@@ -1,27 +1,30 @@
 import React, { useEffect } from 'react'
 
 import infoCircle from '../../assets/mypage/info-circle-line.svg';
-function Bar({readTimeBar,setReadTimeBar,userInfo,dummydata}) {
-  // const convertReadTime = (time)=>{
-  //   const [hour,minutes,seconds] = time.split(':');
-  //   const totalTime = parseInt(hour)*3600 + parseInt(minutes)*60 + parseInt(seconds)
-    
-  //   return totalTime
-  // }
-  // const updatedReadTime =()=>{
-  //   let totalTime = readTimeBar.map((item)=>({
-  //     ...item,
-  //     time:convertReadTime(item.time),
-  //   }))
-  //   setReadTimeBar(totalTime);
-  // }
-  // useEffect(()=>{
-  //   updatedReadTime();
-  // },[])
-  // console.log
+function Bar({readTimeBar,setReadTimeBar,userInfo}) {
+  const toStringReadTime =(totalTime)=>{
+    if(totalTime>=3600){
+      const num = Math.floor(totalTime/3600) 
+      return `${num}시간`
+    }
+    else if(totalTime>=60){
+      const num = Math.floor(totalTime/60)
+      return `${num}분`
+    }
+    else{
+      return `${totalTime}초`
+    }
+  }
   if(!userInfo){
     return <div>loading...</div>
   }
+  const calculateBarHeight = (time) => {
+    if (time === 0) {
+      return 10; 
+    }
+  
+    return time;
+  };
   return (
     <div className='statistics-bar-wrap'>
         <div className='statistics-header-wrap'>
@@ -34,7 +37,7 @@ function Bar({readTimeBar,setReadTimeBar,userInfo,dummydata}) {
         <div className='bar-wrap'>
           {readTimeBar?.map((data,index)=>(
              <div key={index} className='individual-wrap'>
-                <span className='bar'>{data.time}</span>
+                <span className='bar' style={{height:`${calculateBarHeight(data.time)}px`}}>{toStringReadTime(data.time)}</span>
                 <span className='date'>{data.category}</span>
               </div>
           ))}

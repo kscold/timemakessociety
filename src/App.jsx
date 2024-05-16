@@ -14,9 +14,9 @@ const Mypage = lazy(() => import('./components/Mypage/Mypage'));
 const FeedDetail = lazy(()=>import('./components/Feed/FeedDetail/FeedDetail'));
 const UpdateModal = lazy(()=>import('./components/Modal/UpdateModal'));
 const TimeOut = lazy(()=>import('./components/timeOut/TimeOut'));
+const Similar = lazy(()=>import('./components/Feed/FeedDetail/FeedSimilar'));
 import Loading from './components/loading/Loading';
 import Entrance from './components/Entrance/Entrance';
-import FeedTimeModal from './components/Feed/FeedDetail/FeedTimeModal';
 function App() {
   return (
     <BrowserRouter>
@@ -31,11 +31,10 @@ function App() {
           <Route path='/feed' element={<Feed />} />
           <Route path='/mypage' element={<Mypage />} />
           <Route path='/feed_detail/:name/:id' element={<FeedDetail />} />
-          <Route path='/modal' element={<FeedTimeModal/>} />
           <Route path='/timeout' element={<TimeOut/>}/>
           <Route path='/loading' element={<Loading loading={true}/>}/>
           <Route path='/entrance' element={<Entrance/>}/>
-          
+          <Route path='/similar/:name/:id' element={<Similar/>}/>
         </Routes>
       </Suspense>
     </BrowserRouter>

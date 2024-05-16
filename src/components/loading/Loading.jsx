@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { GridLoader } from 'react-spinners';
 
-// 술사진 로딩 페이지 
 
 const override = {
     display: 'block',
