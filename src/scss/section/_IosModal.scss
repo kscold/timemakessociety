@@ -1,0 +1,57 @@
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명한 배경색 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: modal-bg-show 0.8s; /* 모달이 나타날 때 애니메이션 효과 적용 */
+}
+
+.modal-h2 {
+    color: #333333;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.modal-text {
+    color: #333333;
+    font-size: 0.8rem;
+    font-weight: 300;
+    margin-bottom: 0.8rem;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80vw;
+    text-align: center;
+    position: relative;
+    max-width: 375px; /* 모달의 최대 너비를 375px로 제한 */
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    font-size: 24px;
+    color: #333333;
+}
+
+@keyframes modal-bg-show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
