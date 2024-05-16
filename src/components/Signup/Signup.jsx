@@ -38,15 +38,12 @@ function Signup() {
       setIsEmptyState(true)
     } else {
       try {
-        const response = await axios.post(
-          "http://kscoldproject.site/api/members/signup",
-          {
-            loginId: userInfo.loginId,
-            password: userInfo.password,
-            memberName: userInfo.memberName,
-            memberNickname: userInfo.memberNickname,
-          }
-        )
+        const response = await axios.post("/api/members/signup", {
+          loginId: userInfo.loginId,
+          password: userInfo.password,
+          memberName: userInfo.memberName,
+          memberNickname: userInfo.memberNickname,
+        })
         console.log(response.data)
         navigate("/login")
       } catch (error) {

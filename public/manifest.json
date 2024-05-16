@@ -2,10 +2,6 @@
     "name": "Time Makes Society",
     "short_name": "TMS",
     "description": "TMS with PWA",
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#ffffff",
     "icons": [
         {
             "src": "./icons/apple-touch-icon-57x57.png",
@@ -46,6 +42,15 @@
             "src": "./icons/apple-touch-icon-152x152.png",
             "sizes": "152x152",
             "type": "image/png"
+        },
+        {
+            "src": "./icons/logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
         }
-    ]
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000"
 }
