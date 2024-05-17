@@ -1,3 +1,12 @@
+import culture from '../../assets/main/culture.png';
+import economy from '../../assets/main/economy.png';
+import entertainment from '../../assets/main/entertainment.png';
+import goverment from '../../assets/main/goverment.png';
+import science from '../../assets/main/science.png';
+import society from '../../assets/main/society.png';
+import sport from '../../assets/main/sport.png';
+import tech from '../../assets/main/tech.png';
+import world from '../../assets/main/world.png';
 export const scrabdummydata = [
     {
       "uuidArticleId": "b64b8364-d297-4df0-af90-328c80f103ae",
@@ -30,4 +39,15 @@ export const scrabdummydata = [
       "articleTime": "00:05:11"
     }
   ]
+  export const dummydata=[
+    {id:1, img:culture, name:'문화'},
+    {id:2, img:economy,name:'경제'},
+    {id:3, img:entertainment,name:'연예'},
+    {id:4, img:goverment,name:'정치'},
+    {id:5, img:science,name:'과학'},
+    {id:6, img:society,name:'사회'},
+    {id:7, img:sport,name:'스포츠'},
+    {id:8, img:tech,name:'기술'},
+    {id:9, img:world,name:'해외'},
+]
 

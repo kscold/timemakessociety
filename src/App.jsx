@@ -15,6 +15,7 @@ const FeedDetail = lazy(()=>import('./components/Feed/FeedDetail/FeedDetail'));
 const UpdateModal = lazy(()=>import('./components/Modal/UpdateModal'));
 const TimeOut = lazy(()=>import('./components/timeOut/TimeOut'));
 const Similar = lazy(()=>import('./components/Feed/FeedDetail/FeedSimilar'));
+const CategoryArticles = lazy(()=> import('./components/CategoryArticles/CategoryArticles'));
 import Loading from './components/loading/Loading';
 import Entrance from './components/Entrance/Entrance';
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route path='/loading' element={<Loading loading={true}/>}/>
           <Route path='/entrance' element={<Entrance/>}/>
           <Route path='/similar/:name/:id' element={<Similar/>}/>
+          <Route path='/category_articles/:name' element={<CategoryArticles/>}/>
         </Routes>
       </Suspense>
     </BrowserRouter>

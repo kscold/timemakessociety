@@ -12,7 +12,6 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="manifest" href="/manifest.json" />
-    <!-- <link rel="manifest" crossorigin="use-credentials" href="manifest.json" /> -->
 
     <title>TMS</title>
   </head>
@@ -21,12 +20,13 @@
     <script type="module" src="/src/main.jsx"></script>
     <script>
       if ("serviceWorker" in navigator) {
-        // Register a service worker hosted at the root of the
-        // site using the default scope.
         navigator.serviceWorker
           .register("/sw.js")
           .then((registration) => {
-            console.log("Service worker registration succeeded:", registration)
+            console.log(
+              "ServiceWorker registration successful with scope: ",
+              registration.scope
+            )
           })
           .catch((err) => {
             console.log("Service worker registration failed:", error)

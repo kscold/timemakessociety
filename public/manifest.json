@@ -2,7 +2,7 @@
     "name": "Time Makes Society",
     "short_name": "TMS",
     "description": "TMS with PWA",
-    "start_url": "",
+    "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#000000",
@@ -20,8 +20,7 @@
         {
             "src": "icons/logo-512x512.png",
             "type": "image/png",
-            "sizes": "512x512",
-            "purpose": "any"
+            "sizes": "512x512"
         },
         {
             "src": "icons/logo-512x512.png",

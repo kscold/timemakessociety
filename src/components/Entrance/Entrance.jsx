@@ -49,8 +49,8 @@ function Entrance() {
     console.log('count', entranceCount)
     return (
         <>
-            {isWelcome ? <Welcome userInfo={userInfo} /> :
-                isWelcome2 ? (<Welcome2/>) : 
+            {isWelcome ?  (<Welcome2/>):
+                isWelcome2 ?  <Welcome userInfo={userInfo} />: 
                 <Welcome3 userInfo={userInfo}/>
 
 
