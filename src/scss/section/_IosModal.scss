@@ -16,13 +16,7 @@
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 0.8rem;
-}
-
-.modal-text {
-    color: #333333;
-    font-size: 0.8rem;
-    font-weight: 300;
-    margin-bottom: 0.8rem;
+    text-align: center;
 }
 
 .modal-content {
@@ -30,9 +24,18 @@
     padding: 20px;
     border-radius: 8px;
     width: 80vw;
-    text-align: center;
     position: relative;
     max-width: 375px; /* 모달의 최대 너비를 375px로 제한 */
+}
+
+.modal-text {
+    color: #333333;
+    font-size: 0.8rem;
+    font-weight: 300;
+    margin-bottom: 0.8rem;
+    .b {
+        @extend .b;
+    }
 }
 
 .close-button {

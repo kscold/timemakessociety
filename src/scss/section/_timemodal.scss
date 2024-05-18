@@ -1,4 +1,4 @@
-.timemodal-wrap{
+.timemodal-wrap {
     position: fixed;
     right: 16px;
     bottom: 89px;
@@ -10,44 +10,45 @@
     height: 50px;
     border-radius: 50%;
     z-index: 3;
-    .timemodal-bar{
+    .timemodal-bar {
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        background-color: #0078FF;
+        // background-color: #0078ff;
+        background-color: #cccccc;
         display: flex;
         justify-content: center;
         align-items: center;
         //animation: time-bar 5000ms;
     }
-    .timemodal-time{
+    .timemodal-time {
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 10px;
         font-weight: 700;
         color: #ffffff;
-        background-color: #70B3FF;
+        // background-color: #70b3ff;
+        background-color: #cccccc;
         border-radius: 50%;
         width: 35px;
         height: 35px;
     }
 }
 @keyframes time-bar {
-    0%{
+    0% {
         width: 0%;
         opacity: 1;
     }
-    100%{
+    100% {
         width: 100%;
         opacity: 1;
     }
 }
-@media (min-width:768px) {
+@media (min-width: 768px) {
     .timemodal-wrap {
         margin: 0 auto;
         right: 50%;
         transform: translateX(290%);
     }
-
 }

@@ -172,7 +172,7 @@ function Start() {
       <img src={Tms} className="start-logo" alt="Tms-image" />
       <button
         type="button"
-        className="login-button"
+        className="signup-button"
         onClick={() => handleButtonClick("/login")}
       >
         로그인
@@ -190,7 +190,7 @@ function Start() {
         onClick={handleInstallPWA}
         disabled={!deferredPrompt && !isiOS} // deferredPrompt와 isiOS가 모두 없을 때 버튼 비활성화
       >
-        앱으로 실행하기
+        앱으로 연결
       </button>
       <IosModal show={showModal} onClose={() => setShowModal(false)} />
     </div>

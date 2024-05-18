@@ -37,8 +37,8 @@
         width: 171px;
         height: 31px;
         border-radius: 24.21px;
-        background-color: #CCCCCC;
-        
+        background-color: #cccccc;
+
         button {
             color: #ffffff;
             font-size: 15.66px;
@@ -46,15 +46,12 @@
             width: 85.5px;
             height: 31px;
             border-radius: 24.21px;
-            background-color: #CCCCCC;
+            background-color: #cccccc;
             transition: background-color 500ms;
             &.active {
-                background-color: #0078FF;
-                
+                background-color: #333333;
             }
         }
-
-
     }
 
     .feedDetail-footer-image-wrap {
@@ -73,14 +70,12 @@
     .feedDetail-footer-image:first-of-type {
         margin-right: 12px;
     }
-
 }
-@media (min-width:768px) {
+@media (min-width: 768px) {
     .feedDetail-footer-wrap {
         margin: 0 auto;
         width: 375px;
         left: 50%;
         transform: translateX(-50%);
     }
-
 }

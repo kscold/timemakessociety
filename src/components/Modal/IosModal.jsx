@@ -24,6 +24,8 @@ const IosModal = ({ show, onClose }) => {
           }}
         />
         <p className="modal-text">
+          <b>※ chrome/safari 사용 권장</b>
+          <br />
           브라우저에서 '공유' 버튼을 누른 다음 '홈 화면에 추가'를 선택하세요.
         </p>
       </div>

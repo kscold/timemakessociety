@@ -1,49 +1,48 @@
-.timeset-wrap{
+.timeset-wrap {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 110px 18px 84px 18px;
-    h1{
+    h1 {
         font-size: 18px;
         font-weight: 700;
         color: #000000;
         margin-bottom: 10px;
     }
-    .timeout-time{
+    .timeout-time {
         font-size: 30px;
         font-weight: 700;
-        color: #006FFD;
-        .timeout-save{
+        color: #ff0000;
+        .timeout-save {
             color: black;
             font-size: 20px;
         }
     }
-    .timeout-name{
+    .timeout-name {
         font-size: 20px;
         margin-bottom: 5px;
         font-weight: 700;
-        .timeout-nickname{
+        .timeout-nickname {
             color: black;
-            
         }
     }
-    p{
+    p {
         font-size: 12px;
         font-weight: 500;
         color: #7c7c7c;
         margin-bottom: 36px;
     }
-    .time{
+    .time {
         font-size: 40px;
         font-weight: 700;
-        color: #0078ff;
+        color: #0064cd;
         margin-bottom: 36px;
     }
-    .timeset-stick-wrap{
+    .timeset-stick-wrap {
         margin-bottom: 84px;
-        height:370px;
-        .timeset-stick{
+        height: 370px;
+        .timeset-stick {
             display: block;
             width: 140px;
             height: 27px;
@@ -51,13 +50,12 @@
             margin-bottom: 2px;
             transition: all 500ms ease-in-out;
             &.selected {
-                background-color: #0078FF;
+                background-color: #5a5a5a;
             }
         }
-        
     }
-    
-    button{
+
+    button {
         background-color: #333333;
         color: #ffffff;
         border-radius: 8px;
@@ -66,9 +64,9 @@
         height: 48px;
     }
 }
-.timeset-wrap .timeset-stick:first-of-type{
+.timeset-wrap .timeset-stick:first-of-type {
     border-radius: 50px 50px 0 0;
 }
-.timeset-wrap .timeset-stick:last-of-type{
+.timeset-wrap .timeset-stick:last-of-type {
     border-radius: 0 0 50px 50px;
 }
