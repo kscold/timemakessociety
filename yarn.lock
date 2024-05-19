@@ -5095,7 +5095,7 @@ promise-retry@^2.0.1:
     err-code "^2.0.2"
     retry "^0.12.0"
 
-prop-types@^15.8.1:
+prop-types@^15.5.10, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -5165,6 +5165,13 @@ rc@^1.2.7:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-browser-detection@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-browser-detection/-/react-browser-detection-1.2.1.tgz#7cafa3f7e2772394101a3b14b114b6fe7c6124fc"
+  integrity sha512-ku57WQN/NprjxvDjPQuZwmtgWqr77Wq0LM7B0Kn6irVfQFwz/X9qnBNXNQJFiKWCcECPioKDNBSo6MZMNtszYw==
+  dependencies:
+    prop-types "^15.5.10"
 
 react-dom@^18.2.0:
   version "18.3.1"

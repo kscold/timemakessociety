@@ -116,6 +116,7 @@ import React, { useState, useEffect } from "react"
 import Tms from "../../assets/start/TmsLogo.svg"
 import { useNavigate } from "react-router-dom"
 import IosModal from "../Modal/IosModal"
+import { browserName } from "react-browser-detection"
 
 function Start() {
   const [loginState, setLoginState] = useState(false)
@@ -127,17 +128,13 @@ function Start() {
   const [isChrome, setIsChrome] = useState(false)
   const [isPWA, setIsPWA] = useState(false)
 
-  // iOS 및 Android 확인
   useEffect(() => {
     const userAgent = window.navigator.userAgent.toLowerCase()
     const isIOSDevice = /iphone|ipad|ipod/.test(userAgent)
     const isAndroidDevice = /android/.test(userAgent)
-    const isChromeBrowser =
-      /chrome/.test(userAgent) && !/edge|edg|opr/.test(userAgent)
 
     setIsiOS(isIOSDevice)
     setIsAndroid(isAndroidDevice)
-    setIsChrome(isChromeBrowser)
 
     const handleBeforeInstallPrompt = (e) => {
       e.preventDefault()
@@ -152,7 +149,6 @@ function Start() {
         window.matchMedia("(display-mode: standalone)").matches ||
         window.navigator.standalone
       setIsPWA(isInStandaloneMode)
-      console.log("isInStandaloneMode: ", isInStandaloneMode) // 디버깅용 로그 추가
     }
 
     checkPWA()
@@ -164,6 +160,16 @@ function Start() {
       )
     }
   }, [])
+
+  useEffect(() => {
+    // Check if the browser is Chrome
+    setIsChrome(browserName === "Chrome")
+
+    // Show the modal if the browser is not Chrome and it's an Android device
+    if (!isChrome && isAndroid) {
+      setShowModal(true)
+    }
+  }, [isAndroid])
 
   // PWA 설치 이벤트 핸들러
   const handleInstallPWA = () => {
