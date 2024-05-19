@@ -1,4 +1,5 @@
 import React from 'react'
+import {motion} from 'framer-motion';
 
 import share from '../../../assets/feedFooter/share.svg';
 import scrab from '../../../assets/feedFooter/scrab.svg';
@@ -20,7 +21,20 @@ function FeedFooter({scrabState,handleScrab,handleFeedState,handleContentSizeUpD
         </div>
         <div className='feedDetail-footer-image-wrap'>
           <img src={share} className='feedDetail-footer-image' alt='share-image'/>
-          <img src={scrabState ? scrabFill : scrab} className='feedDetail-footer-image' alt='scrab-image' onClick={handleScrab}/>
+          <motion.div
+            whileTap={{scale:1.5}}
+            transition={{ type:'spring',stiffness:500}}
+          >
+          <img 
+            src={scrabState ? scrabFill : scrab} 
+            className='feedDetail-footer-image' 
+            alt='scrab-image' 
+            onClick={handleScrab}
+            
+          />
+          </motion.div>
+          
+          {/* <img src={scrabState ? scrabFill : scrab} className='feedDetail-footer-image' alt='scrab-image' onClick={handleScrab}/> */}
         </div>
     </div>
   )

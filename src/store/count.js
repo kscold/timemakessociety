@@ -17,7 +17,7 @@ const timerSlice = createSlice({
         },
         tick(state){
             if(state.running && state.modifiedTimer>0){
-                state.modifiedTimer= state.modifiedTimer-60
+                state.modifiedTimer--;
                 localStorage.setItem('modifiedTimer',state.modifiedTimer)
             }
             

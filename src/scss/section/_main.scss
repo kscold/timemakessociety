@@ -86,6 +86,12 @@
                 left: 15px;
                 bottom: 15px;
             }
+            .category-name{
+                position: absolute;
+                left: 220px;
+                bottom: 15px;
+            }
+            
         }
     }
     //카테고리 기사
@@ -185,7 +191,7 @@
             margin-right: 10px;
             flex-shrink: 0;
             position: relative;
-            .time{
+            .text-on-background{
                 display: block;
                 position: absolute;
                 padding: 7px 10px;
@@ -198,6 +204,13 @@
                 font-size: 12px;
                 font-weight: 700;
                 color: #ffffff;
+                &.active{
+                    left: 10px;
+                    top: 100px;
+                    font-size: 11px;
+                    background-color:rgb(246, 244,245,0.8);
+                    color: #000000;
+                }
             }
             .recommend-content-image{
                 height: 100%;
@@ -225,6 +238,11 @@
                 color: #8d8d8d;
                 position: absolute;
                 left: 15px;
+                bottom: 15px;
+            }
+            .category-name{
+                position: absolute;
+                left: 120px;
                 bottom: 15px;
             }
         }

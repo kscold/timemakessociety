@@ -1,5 +1,4 @@
 import React from "react"
-import "../../scss/section/_IosModal.scss"
 
 const IosModal = ({ show, onClose }) => {
   if (!show) {

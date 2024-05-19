@@ -7,7 +7,7 @@ import UpdateModal from './UpdateModal';
 
 function CommentModal({ id,setCommentState, articleId, handleComment }) {
   const [commentData, setCommentData] = useState([]);
-  const [buttonState, setButtonState] = useState('인기순');
+  const [buttonState, setButtonState] = useState('최신순');
   const memberName = localStorage.getItem('memberName');
   const memberNickName = localStorage.getItem('memberNickName');
   const [newComment, setNewComment] = useState('');
@@ -134,10 +134,6 @@ function CommentModal({ id,setCommentState, articleId, handleComment }) {
           </div>
           <h1 className='header'>댓글</h1>
           <div className='button-wrap'>
-            <button
-              className={`${buttonState === '인기순' ? 'button active' : 'button'}`}
-              onClick={() => toggleButton('인기순')}
-            >인기순</button>
             <button
               className={`${buttonState === '최신순' ? 'button active' : 'button'}`}
               onClick={() => toggleButton('최신순')}

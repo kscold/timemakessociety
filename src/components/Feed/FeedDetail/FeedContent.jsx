@@ -4,6 +4,7 @@ import like from '../../../assets/feedDetail/like.svg';
 import Filllike from '../../../assets/feedDetail/fill-likes.png';
 import comment from '../../../assets/feedDetail/comment.svg';
 import FeedLoading from './FeedLoading';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 function FeedContent({loading,likeStates,setLikeStates,handleLike,feedContent,feedState,contentSize,commentState,handleComment}) {
   
@@ -13,18 +14,24 @@ function FeedContent({loading,likeStates,setLikeStates,handleLike,feedContent,fe
           {feedContent.title}
         </p>
         <p className='feedDetail-content-date'>
-          입력
-          <span style={{ marginLeft: '7px', marginRight: '7px' }}>{feedContent.createdDate}</span>
+          입력 
+          <span style={{ marginLeft: '7px', marginRight: '7px' }}>{feedContent.createdDate} {feedContent.category}</span>
           
           <span className='feedDetail-content-articlestate'>
             {feedState ? '기사요약' : '기사원문'}
           </span>
         </p>
         <p className='feedDetail-content-reporter'>
-          평균 읽는 시간: {feedContent.articleTime}
+          평균 읽는 시간: {feedContent.articleTime} 
         </p>
         <div className='like-comment-wrap'>
-          <img src={likeStates?.liked ? Filllike : like} alt='like-image' onClick={()=>handleLike()}/>
+        <motion.div
+            whileTap={{scale:1.5}}
+            transition={{ type:'spring',stiffness:500}}
+          >
+            <img src={likeStates?.liked ? Filllike : like} alt='like-image' onClick={()=>handleLike()}/>
+          </motion.div>
+          
           <span>{likeStates?.likeCount}</span>
           <div onClick={handleComment} className='comment'>
             <img src={comment} alt='comment-image'/>

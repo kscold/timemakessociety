@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 import backward from '../../../assets/backward.svg';
@@ -10,7 +11,7 @@ import FeedHeader from './FeedHeader';
 import TimeModal from '../../Modal/TimeModal';
 import CommentModal from '../../Modal/CommentModal';
 import FeedTimeModal from './FeedTimeModal';
-
+import {readAriticlesActions} from '../../../store/readArticles';
 function FeedDetail({ feedType }) {
   //feedType은 리덕스로 관리 -> 실시간, 추천 , 스크랩을 feedtype을 이용해서 렌더링
   const [feedContent, setFeedContent] = useState({});
@@ -26,13 +27,19 @@ function FeedDetail({ feedType }) {
   const [position, setPosition] = useState(window.pageYOffset);
   const [visible, setVisible] = useState(true);
 
+  const dispatch = useDispatch();
+  const readArticleArray = useSelector(state =>state.readArticle.readAriticleList)
+
   const { name,id } = useParams();
   const memberId = localStorage.getItem('memberId');
   const getTime = localStorage.getItem('readTime');
   const navigate = useNavigate();
-  //console.log("feedDetail:", id);
-  const handleGoBack = async () => {
+  
+  const handleGoBack = async (identifier) => {
     setBackWardState(true)
+    if(name==='추천'){
+      dispatch(readAriticlesActions.plus(id))
+    }
     try {
 
       const response = await axios.post('/api/members/readTime', {
@@ -53,9 +60,12 @@ function FeedDetail({ feedType }) {
     catch (error) {
       new Error(error);
     }
-    const accumulateTime = readTime+Number(getTime) ;
-    localStorage.setItem('readTime',accumulateTime)
-    navigate('/home');
+    const accumulateTime = readTime+Number(getTime);
+    localStorage.setItem('readTime',accumulateTime);
+    if(identifier==='back'){
+      navigate('/home');
+    }
+    
   }
   //console.log("feed",feedContent.category)
   const handleFeedState = () => {
@@ -123,7 +133,7 @@ function FeedDetail({ feedType }) {
     };
   }, [position]);
   useEffect(() => {
-    
+    console.log("read articles array: ",readArticleArray);
     if (feedState) {
       // --임시 API 통신 code--
       const fetchFeedDetail = async () => {
