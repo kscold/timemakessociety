@@ -164,12 +164,7 @@ function Start() {
   useEffect(() => {
     // Check if the browser is Chrome
     setIsChrome(browserName === "Chrome")
-
-    // Show the modal if the browser is not Chrome and it's an Android device
-    if (!isChrome && isAndroid) {
-      setShowModal(true)
-    }
-  }, [isAndroid])
+  }, [])
 
   // PWA 설치 이벤트 핸들러
   const handleInstallPWA = () => {

@@ -22,6 +22,7 @@ function Signup() {
   const [emailSent, setEmailSent] = useState(false)
   const [verificationComplete, setVerificationComplete] = useState(false)
   const [verificationMessage, setVerificationMessage] = useState("") // 상태 추가
+  const [loading, setLoading] = useState(false) // 로딩 상태 추가
   const navigate = useNavigate()
 
   const handleInputChange = (identifier, value) => {
@@ -36,6 +37,7 @@ function Signup() {
       setVerificationMessage("이메일을 입력해주세요.")
       return
     }
+    setLoading(true) // 로딩 시작
     try {
       const response = await axios.post("/api/members/mail", {
         email: userInfo.email,
@@ -51,6 +53,8 @@ function Signup() {
       }
     } catch (error) {
       setVerificationMessage("이메일 전송에 실패하였습니다.")
+    } finally {
+      setLoading(false) // 로딩 종료
     }
   }
 
@@ -177,9 +181,13 @@ function Signup() {
             type="button"
             className="mail-button"
             onClick={handleEmailSend}
-            disabled={emailSent}
+            disabled={emailSent || loading} // 로딩 중일 때 버튼 비활성화
           >
-            전송
+            {loading ? (
+              <div className="loader"></div> // 로딩 애니메이션
+            ) : (
+              "전송"
+            )}
           </button>
         </div>
         {verificationMessage && (
