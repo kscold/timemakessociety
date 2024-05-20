@@ -316,7 +316,7 @@ function Feed() {
                 {memberNickname}
                 <span
                   style={{
-                    color: '#3333333',
+                    color: '#333333',
                     fontSize: '15px',
                     fontWeight: '700',
                   }}
