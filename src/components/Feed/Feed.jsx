@@ -47,11 +47,9 @@ function Feed() {
   const memberId = localStorage.getItem('memberId');
   const category = localStorage.getItem('category');
   const timer = localStorage.getItem('timer');
-  const [currentTimer, setCurrentTimer] = useState(
-    localStorage.getItem('currentTimer') || timer
-  );
+
   const [totalArticleTime, setTotalArticleTime] = useState(
-    localStorage.getItem('timer')
+    parseTimeToSeconds(timer)
   );
 
   const recommendFeedCache = useRef(
@@ -154,7 +152,7 @@ function Feed() {
     } else if (feedState === '스크랩') {
       fetchScrapFeed();
     }
-  }, [feedState, InView, currentTimer]);
+  }, [feedState, InView]);
 
   useEffect(() => {
     const storedTotalArticleTime = localStorage.getItem('totalArticleTime');
@@ -240,7 +238,6 @@ function Feed() {
       setLoading(true);
       const modifiedTimer = localStorage.getItem('modifiedTimer');
       const timer = parseSecondsToTime(modifiedTimer);
-      setCurrentTimer(timer);
       const response = await axios.get(
         `/api/articles/recommend?category=${category}&target=${timer}`
       );
@@ -318,11 +315,7 @@ function Feed() {
                 onClick={handleRefreshRecommend}
                 disabled={loading} // 로딩 중에는 버튼 비활성화
               >
-                {loading ? (
-                  <span className="loader" /> // 로딩 아이콘
-                ) : (
-                  '새로 추천'
-                )}
+                {loading ? <span className="loader" /> : '새로 추천'}
               </button>
               <p className="refresh-all-time">
                 추천된 총 기사 시간:

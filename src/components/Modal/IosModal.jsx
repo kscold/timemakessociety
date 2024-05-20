@@ -1,8 +1,8 @@
-import React from "react"
+import React from 'react';
 
 const IosModal = ({ show, onClose }) => {
   if (!show) {
-    return null
+    return null;
   }
 
   return (
@@ -16,21 +16,21 @@ const IosModal = ({ show, onClose }) => {
           src="/ios_pwa.jpg"
           alt="iOS PWA 설치 안내"
           style={{
-            maxWidth: "100vw",
-            height: "auto",
-            marginBottom: "1rem",
-            borderRadius: "10px",
+            maxWidth: '100vw',
+            height: 'auto',
+            marginBottom: '1rem',
+            borderRadius: '10px',
           }}
         />
         <p className="modal-text">
           <b>※ chrome/safari 사용 권장</b>
           <br />
           브라우저에서 '공유'버튼을 누른 다음 '홈 화면에 추가' 또는 '추가'
-          버튼을 눌러 홈화면에 추가하세요.
+          버튼을 눌러 홈 화면에 추가하세요.
         </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default IosModal
+export default IosModal;
