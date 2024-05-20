@@ -316,7 +316,7 @@ function Feed() {
                 {memberNickname}
                 <span
                   style={{
-                    color: '#000000',
+                    color: '#3333333',
                     fontSize: '15px',
                     fontWeight: '700',
                   }}
@@ -326,8 +326,10 @@ function Feed() {
               </p>
               <p className="recommend-info">기사를 추천해드려요!</p>
               <p className="refresh-all-time">
-                추천된 총 기사 시간:
-                <b>{parseSecondsToTime(totalArticleTime)}</b>
+                추천된 총 기사 시간:<span> </span>
+                <span style={{ color: '#333333' }}>
+                  {parseSecondsToTime(totalArticleTime)}
+                </span>
               </p>
             </div>
 
