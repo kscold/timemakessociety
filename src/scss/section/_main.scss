@@ -243,7 +243,7 @@
                 -webkit-box-orient: vertical;
                 text-overflow: ellipsis;
                 overflow: hidden;
-                height: 6rem;
+                max-height: 40px;
             }
             h1 {
                 font-size: 0.75rem;
