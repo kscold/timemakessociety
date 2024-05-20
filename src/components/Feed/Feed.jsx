@@ -45,6 +45,7 @@ function Feed() {
     (state) => state.readArticle.readAriticleList
   );
   const memberId = localStorage.getItem('memberId');
+  const memberNickname = localStorage.getItem('memberNickname');
   const category = localStorage.getItem('category');
   const timer = localStorage.getItem('timer');
 
@@ -304,11 +305,32 @@ function Feed() {
       <div className="feed-content-wrap">
         {feedState === '추천' && (
           <div className="recommend-info-warp">
-            <p className="recommend-info">
-              TMS가 설정한 시간과 카테고리에 맞게
-              <br />
-              읽을 만한 기사를 추천해드려요!
-            </p>
+            <div className="text-wrap">
+              <p
+                style={{
+                  color: '#0064cd',
+                  fontSize: '22px',
+                  fontWeight: '700',
+                }}
+              >
+                {memberNickname}
+                <span
+                  style={{
+                    color: '#000000',
+                    fontSize: '15px',
+                    fontWeight: '700',
+                  }}
+                >
+                  님
+                </span>
+              </p>
+              <p className="recommend-info">기사를 추천해드려요!</p>
+              <p className="refresh-all-time">
+                추천된 총 기사 시간:
+                <b>{parseSecondsToTime(totalArticleTime)}</b>
+              </p>
+            </div>
+
             <div className="refresh-recommend-info">
               <button
                 className="refresh-button"
@@ -317,10 +339,6 @@ function Feed() {
               >
                 {loading ? <span className="loader" /> : '새로 추천'}
               </button>
-              <p className="refresh-all-time">
-                추천된 총 기사 시간:
-                <b>{parseSecondsToTime(totalArticleTime)}</b>
-              </p>
             </div>
           </div>
         )}
