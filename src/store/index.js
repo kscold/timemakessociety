@@ -4,6 +4,8 @@ import authReducer from './auth';
 import loginReducer from './Login';
 import timerReducer from './count';
 import readArticleReducer from './readArticles';
+import isGoToSimilarReducer from './isGoToSimilar';
+
 // const reducers = combineReducers=({
 //     timer: timerReducer,
 //     auth:authReducer,
@@ -25,6 +27,8 @@ const store = configureStore({
         login:loginReducer,
         timer:timerReducer,
         readArticle:readArticleReducer,
+        isGoToSimilar:isGoToSimilarReducer,
+
     }
 });
 

@@ -77,6 +77,7 @@ function CommentModal({ id,setCommentState, articleId, handleComment }) {
       }, ...preValue,
     ]))
     setNewComment('')
+    
   }
   //댓글 수정
   const handleUpdate=async(id,value) =>{
@@ -102,6 +103,7 @@ function CommentModal({ id,setCommentState, articleId, handleComment }) {
     setCommentData(newCommentData);
     setNewComment('')
     setGotoUpdate(false)
+    setUpdateButton(false)
   }
   //댓글 삭제
   const handleDelete = async (id) => {
@@ -148,7 +150,7 @@ function CommentModal({ id,setCommentState, articleId, handleComment }) {
               <div className='profile-image' style={{ backgroundImage: `url(${profileimage})` }} />
               <div className='comment-wrap'>
                 <p className='nickname'>
-                  {comment.memberName}
+                  {comment.memberNickname}
                   <img src={option} className='option' onClick={() => handleOptionToggle(comment.id,comment.memberName)} />
                  
                 </p>

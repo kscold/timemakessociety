@@ -7,7 +7,8 @@ import FeedLoading from './FeedLoading';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 function FeedContent({loading,likeStates,setLikeStates,handleLike,feedContent,feedState,contentSize,commentState,handleComment}) {
-  
+  const feedContentLength = feedContent.content?.length;
+  //console.log('article length: ',feedContentLength)
   return (
     <div className='feedDetail-content-wrap'>
         <p className='feedDetail-content-header'>
@@ -43,7 +44,8 @@ function FeedContent({loading,likeStates,setLikeStates,handleLike,feedContent,fe
 
         </div>
         <p className={`${contentSize ? 'feedDetail-content-thebody active' : 'feedDetail-content-thebody'}`}>
-          {loading&&feedState? <FeedLoading isSimilar={false}/> :feedContent.content}
+          {loading&&feedState? <FeedLoading isSimilar={false}/> :feedContentLength<=100&&feedState===true ? '요약할 내용이 없습니다.' : feedContent.content }
+         
         </p>
       </div>
   )

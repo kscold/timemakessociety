@@ -10,8 +10,8 @@ function SimilarContent({ similarDataList,name,memberNickname }) {
             </p>
             <p className='similar-text'>유사 기사를 추천해드려요!</p>
             {similarDataList.map((item) => (
-                <Link to={`/feed_detail/${name}/${item.id}`}>
-                    <div className='content'>
+                <Link to={`/feed_detail/${name}/${item.id}`} key={item.id}>
+                    <div  className='content'>
                         <img src={item.image} className='content-image' />
                         <div className='content-title-wrap'>
                             <h1>{item.title}</h1>

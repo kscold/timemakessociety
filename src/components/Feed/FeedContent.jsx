@@ -23,7 +23,7 @@ function FeedContent({
         onClick={onClick}
       />
       <span className="text-on-backgorund">{feed.articleTime}</span>
-      {readArticles?.includes(feed.id) ? (
+      {readArticles?.includes(feed.id || feed.uuidArticleId) ? (
         <p className="text-on-backgorund active">읽은기사</p>
       ) : (
         ""
