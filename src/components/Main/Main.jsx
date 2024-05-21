@@ -18,7 +18,7 @@ function Main() {
   );
 
   const timer = localStorage.getItem('timer');
-  const category = localStorage.getItem('category');
+  const category = localStorage.getItem('activeCategory');
   const navigate = useNavigate();
 
   useEffect(() => {

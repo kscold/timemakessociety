@@ -46,7 +46,7 @@ function Feed() {
   );
   const memberId = localStorage.getItem('memberId');
   const memberNickname = localStorage.getItem('memberNickname');
-  const category = localStorage.getItem('category');
+  const category = localStorage.getItem('activeCategory');
   const timer = localStorage.getItem('timer');
 
   const [totalArticleTime, setTotalArticleTime] = useState(
