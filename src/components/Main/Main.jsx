@@ -68,11 +68,16 @@ function Main() {
         {liveArticle.map((article, index) => (
           <Link to={`/feed_detail/${'실시간'}/${article.id}`} key={article.id}>
             <div className="live-content-wrap">
-              <img
-                src={article.image}
+              <div
+                style={{ backgroundImage: `url(${article.image})` }}
                 alt="News Image"
                 className="live-content-image"
               />
+              {/* <img
+                src={article.image}
+                alt="News Image"
+                className="live-content-image"
+              /> */}
               <span className="time">{article.articleTime}</span>
               {readArticles?.includes(article.id) ? (
                 <p className="time active">읽은 기사</p>

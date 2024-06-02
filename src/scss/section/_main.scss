@@ -1,269 +1,273 @@
 .main-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  position: relative;
+  .tms-logo {
+    display: block;
+    width: 55px;
+    height: 23px;
+    margin-bottom: 36px;
+  }
+  .title {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    padding: 15px;
-    position: relative;
-    .tms-logo {
+    width: 100%;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    margin-left: 20px;
+  }
+  .title:nth-of-type(3) {
+    margin-bottom: 3px;
+  }
+  .memberNickname {
+    font-size: 24px;
+    color: #0078ff;
+  }
+  //실시간 뉴스 기사
+  .live-wrap {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow: hidden;
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 42px;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
+    .live-content-wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 268px;
+      height: 247px;
+      background-color: rgb(246, 244, 245);
+      //background-color: rgb(242, 246, 250);
+      border-radius: 16px;
+      margin-right: 20px;
+      flex-shrink: 0;
+      position: relative;
+      .time {
         display: block;
-        width: 55px;
-        height: 23px;
-        margin-bottom: 36px;
-    }
-    .title {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        width: 100%;
-        color: #000000;
-        font-size: 16px;
+        position: absolute;
+        padding: 7px 10px;
+        right: 10px;
+        top: 10px;
+        width: 70px;
+        height: 30px;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+        font-size: 12px;
         font-weight: 700;
-        margin-bottom: 16px;
-        margin-left: 20px;
-    }
-    .title:nth-of-type(3) {
-        margin-bottom: 3px;
-    }
-    .memberNickname {
-        font-size: 24px;
-        color: #0078ff;
-    }
-    //실시간 뉴스 기사
-    .live-wrap {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        overflow: hidden;
-        width: 100%;
-        overflow-x: auto;
-        margin-bottom: 42px;
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none;
-        .live-content-wrap {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            width: 268px;
-            height: 247px;
-            background-color: rgb(246, 244, 245);
-            //background-color: rgb(242, 246, 250);
-            border-radius: 16px;
-            margin-right: 20px;
-            flex-shrink: 0;
-            position: relative;
-            .time {
-                display: block;
-                position: absolute;
-                padding: 7px 10px;
-                right: 10px;
-                top: 10px;
-                width: 70px;
-                height: 30px;
-                background-color: rgba(0, 0, 0, 0.6);
-                border-radius: 10px;
-                font-size: 12px;
-                font-weight: 700;
-                color: #ffffff;
-                &.active {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    left: 10px;
-                    top: 125px;
-                    font-size: 11px;
-                    background-color: rgb(246, 244, 245, 0.8);
-                    color: #000000;
-                }
-            }
-            .live-content-image {
-                height: 165px;
-                border-radius: 16px 16px 0 0;
-            }
-            .live-content-title-wrap {
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                text-overflow: ellipsis;
-                padding: 10px 15px;
-                height: 100%;
-                max-height: 48px;
-                overflow: hidden;
-            }
-            h1 {
-                font-size: 14px;
-                font-weight: 700;
-                color: #000000;
-                margin-bottom: 10px;
-            }
-            p {
-                font-size: 11px;
-                font-weight: 400;
-                color: #8d8d8d;
-                position: absolute;
-                left: 15px;
-                bottom: 15px;
-            }
-            .category-name {
-                position: absolute;
-                left: 220px;
-                bottom: 15px;
-            }
+        color: #ffffff;
+        &.active {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          left: 10px;
+          top: 125px;
+          font-size: 11px;
+          background-color: rgb(246, 244, 245, 0.8);
+          color: #000000;
         }
-    }
-    //카테고리 기사
-    .main-category-wrap {
+      }
+      .live-content-image {
         width: 100%;
+        height: 165px;
+        border-radius: 16px 16px 0 0;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+      .live-content-title-wrap {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        padding: 10px 15px;
         height: 100%;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex-wrap: nowrap;
+        max-height: 48px;
         overflow: hidden;
-        overflow-x: scroll;
-        margin-bottom: 20px;
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none;
-        .main-category-content-wrap {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin-right: 15px;
-
-            .category {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 60px;
-                height: 60px;
-                border-radius: 50%;
-                background-color: rgb(242, 246, 250);
-                color: white;
-                flex-shrink: 0;
-                padding: 10px;
-                box-shadow: rgba(100, 100, 111, 0.5) 0px 2px 2px 0px;
-                margin-bottom: 7px;
-            }
-            .main-category-content-text {
-                font-size: 12px;
-                font-weight: 700;
-                color: grey;
-            }
-        }
+      }
+      h1 {
+        font-size: 14px;
+        font-weight: 700;
+        color: #000000;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 11px;
+        font-weight: 400;
+        color: #8d8d8d;
+        position: absolute;
+        left: 15px;
+        bottom: 15px;
+      }
+      .category-name {
+        position: absolute;
+        left: 220px;
+        bottom: 15px;
+      }
     }
-    //랜덤
-    .main-random-wrap {
-        width: 100%;
+  }
+  //카테고리 기사
+  .main-category-wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    overflow-x: scroll;
+    margin-bottom: 20px;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
+    .main-category-content-wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-right: 15px;
+
+      .category {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: rgb(242, 246, 250);
+        color: white;
+        flex-shrink: 0;
+        padding: 10px;
+        box-shadow: rgba(100, 100, 111, 0.5) 0px 2px 2px 0px;
+        margin-bottom: 7px;
+      }
+      .main-category-content-text {
+        font-size: 12px;
+        font-weight: 700;
+        color: grey;
+      }
+    }
+  }
+  //랜덤
+  .main-random-wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(246, 244, 245);
+    margin-bottom: 40px;
+    .main-random-text-wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      .starttext {
+        font-size: 13px;
+        color: #000000;
+        font-weight: 700;
+        margin-bottom: 7px;
+      }
+      .endtext {
+        font-size: 11px;
+        color: gray;
+        font-weight: 400;
+      }
+    }
+    .random-image {
+      width: 50px;
+    }
+  }
+
+  //추천 기사
+  .recommend-wrap {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow: hidden;
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 100px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    .recommend-content-wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 157px;
+      height: 240px;
+      background-color: rgb(246, 244, 245);
+      //background-color: rgb(242, 246, 250);
+      border-radius: 10px;
+      margin-right: 10px;
+      flex-shrink: 0;
+      position: relative;
+      .text-on-background {
+        display: block;
+        position: absolute;
+        padding: 7px 10px;
+        right: 10px;
+        top: 10px;
+        width: 70px;
+        height: 30px;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #ffffff;
+        &.active {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          left: 10px;
+          top: 100px;
+          font-size: 11px;
+          background-color: rgb(246, 244, 245, 0.8);
+          color: #000000;
+        }
+      }
+      .recommend-content-image {
         height: 100%;
-        display: flex;
-        padding: 20px;
-        justify-content: space-between;
-        align-items: center;
-        background-color: rgb(246, 244, 245);
-        margin-bottom: 40px;
-        .main-random-text-wrap {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            .starttext {
-                font-size: 13px;
-                color: #000000;
-                font-weight: 700;
-                margin-bottom: 7px;
-            }
-            .endtext {
-                font-size: 11px;
-                color: gray;
-                font-weight: 400;
-            }
-        }
-        .random-image {
-            width: 50px;
-        }
-    }
-
-    //추천 기사
-    .recommend-wrap {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
+        max-height: 140px;
+        border-radius: 10px 10px 0 0;
+      }
+      .recommend-content-title-wrap {
+        padding: 10px 15px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
         overflow: hidden;
-        width: 100%;
-        overflow-x: auto;
-        margin-bottom: 100px;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-        .recommend-content-wrap {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            width: 157px;
-            height: 240px;
-            background-color: rgb(246, 244, 245);
-            //background-color: rgb(242, 246, 250);
-            border-radius: 10px;
-            margin-right: 10px;
-            flex-shrink: 0;
-            position: relative;
-            .text-on-background {
-                display: block;
-                position: absolute;
-                padding: 7px 10px;
-                right: 10px;
-                top: 10px;
-                width: 70px;
-                height: 30px;
-                background-color: rgba(0, 0, 0, 0.6);
-                border-radius: 10px;
-                font-size: 12px;
-                font-weight: 700;
-                color: #ffffff;
-                &.active {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    left: 10px;
-                    top: 100px;
-                    font-size: 11px;
-                    background-color: rgb(246, 244, 245, 0.8);
-                    color: #000000;
-                }
-            }
-            .recommend-content-image {
-                height: 100%;
-                max-height: 140px;
-                border-radius: 10px 10px 0 0;
-            }
-            .recommend-content-title-wrap {
-                padding: 10px 15px;
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                max-height: 40px;
-            }
-            h1 {
-                font-size: 0.75rem;
-                font-weight: 700;
-                color: #000000;
-                margin-bottom: 10px;
-            }
-            p {
-                font-size: 11px;
-                font-weight: 400;
-                color: #8d8d8d;
-                position: absolute;
-                left: 15px;
-                bottom: 15px;
-            }
-            .category-name {
-                position: absolute;
-                left: 120px;
-                bottom: 15px;
-            }
-        }
+        max-height: 40px;
+      }
+      h1 {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #000000;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 11px;
+        font-weight: 400;
+        color: #8d8d8d;
+        position: absolute;
+        left: 15px;
+        bottom: 15px;
+      }
+      .category-name {
+        position: absolute;
+        left: 120px;
+        bottom: 15px;
+      }
     }
+  }
 }

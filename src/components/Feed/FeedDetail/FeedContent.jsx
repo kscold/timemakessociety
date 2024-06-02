@@ -1,24 +1,26 @@
-import React, { useState } from 'react';
-
+import React from 'react';
 import like from '../../../assets/feedDetail/like.svg';
 import Filllike from '../../../assets/feedDetail/fill-likes.png';
 import comment from '../../../assets/feedDetail/comment.svg';
 import FeedLoading from './FeedLoading';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+
 function FeedContent({
   loading,
   likeStates,
-  setLikeStates,
   handleLike,
   feedContent,
   feedState,
   contentSize,
   commentState,
   handleComment,
+  similarity,
+  summarize,
+  summarizeLoading,
+  onClickGptButton,
 }) {
   const feedContentLength = feedContent.content?.length;
-  //console.log('article length: ',feedContentLength)
+
   return (
     <div className="feedDetail-content-wrap">
       <p className="feedDetail-content-header">{feedContent.title}</p>
@@ -34,6 +36,10 @@ function FeedContent({
       <p className="feedDetail-content-reporter">
         평균 읽는 시간: {feedContent.articleTime}
       </p>
+      <p className="similarity">
+        원문기사와 요약기사의 <span>유사도:</span> <b>{similarity}%</b>
+      </p>
+
       <div className="like-comment-wrap">
         <motion.div
           whileTap={{ scale: 1.5 }}
@@ -42,7 +48,7 @@ function FeedContent({
           <img
             src={likeStates?.liked ? Filllike : like}
             alt="like-image"
-            onClick={() => handleLike()}
+            onClick={handleLike}
           />
         </motion.div>
 
@@ -63,10 +69,12 @@ function FeedContent({
             : 'feedDetail-content-thebody'
         }`}
       >
-        {loading && feedState ? (
+        {feedState && summarizeLoading ? (
           <FeedLoading isSimilar={false} />
-        ) : feedContentLength <= 100 && feedState === true ? (
-          '요약할 내용이 없습니다.'
+        ) : feedState && feedContentLength <= 100 ? (
+          '내용이 짧기 때문에 요약할 내용이 없습니다.'
+        ) : feedState && summarize ? (
+          summarize
         ) : (
           feedContent.content
         )}
