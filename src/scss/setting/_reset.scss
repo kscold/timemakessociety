@@ -38,8 +38,7 @@ figcaption {
     padding: 0;
 }
 
-// 폰트 초기화 
-
+// 폰트 초기화
 
 // 링크 초기화
 a,
@@ -97,7 +96,6 @@ textarea:focus,
 textarea:active {
     outline: none;
     box-shadow: none;
-
 }
 
 // 스킵메뉴
@@ -131,7 +129,7 @@ textarea:active {
 }
 
 // IR(Image Replacement)
-// 의미가 포함되어 있는 image를 배경으로 표현하고, 텍스트는 보이지 않게 설정하는 방법입니다.
+// 의미가 포함되어 있는 image를 배경으로 표현하고, 텍스트는 보이지 않게 설정하는 방법
 .ir {
     display: block;
     overflow: hidden;

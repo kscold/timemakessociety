@@ -1,45 +1,53 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+// import React from "react"
+// import "./scss/style.scss"
+// import { RouterProvider } from "react-router-dom"
+// import router from "./router"
+// // import { createStore } from "redux";
+// // import rootReducer from "./redux"
+// import { Provider, useDispatch } from "react-redux"
+// import store from "./redux/store"
+// // 리덕스에 비동기 작업도 실행시키기 위해 redux-thunk를 적용함
+// // const store = createStore(rootReducer)
 
-import './scss/style.scss';
+// const dispatch = useDispatch()
 
-const Start = lazy(() => import('./components/Start/Start'));
-const Signup = lazy(() => import('./components/Signup/Signup'));
-const Login = lazy(() => import('./components/Login/Login'));
-const Category = lazy(()=>import('./components/category/Category'));
-const TimeSet = lazy(()=>import('./components/Timeset/TimeSet'));
-const Main = lazy(() => import('./components/Main/Main'));
-const Feed = lazy(() => import('./components/Feed/Feed'));
-const Mypage = lazy(() => import('./components/Mypage/Mypage'));
-const FeedDetail = lazy(()=>import('./components/Feed/FeedDetail/FeedDetail'));
-const UpdateModal = lazy(()=>import('./components/Modal/UpdateModal'));
-const TimeOut = lazy(()=>import('./components/timeOut/TimeOut'));
-const Similar = lazy(()=>import('./components/Feed/FeedDetail/FeedSimilar'));
-const CategoryArticles = lazy(()=> import('./components/CategoryArticles/CategoryArticles'));
-import Loading from './components/loading/Loading';
-import Entrance from './components/Entrance/Entrance';
-function App() {
+// useEffect(() => {
+//   startTokenCheckInterval()
+// }, [dispatch])
+
+// const App = () => {
+//   return (
+//     <Provider store={store}>
+//       <RouterProvider router={router} />
+//     </Provider>
+//   )
+// }
+
+// export default App
+
+import React, { useEffect } from "react"
+import "./scss/style.scss"
+import { RouterProvider } from "react-router-dom"
+import router from "./router"
+import { Provider, useDispatch } from "react-redux"
+import store from "./redux/store"
+import { startTokenCheckInterval } from "./components/LoginCheck"
+
+const AppContent = () => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    startTokenCheckInterval(dispatch)
+  }, [dispatch])
+
+  return <RouterProvider router={router} />
+}
+
+const App = () => {
   return (
-    <BrowserRouter>
-      <Suspense fallback={<Loading loading={true}/>}>
-        <Routes>
-          <Route path='/' element={<Start />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/signup' element={<Signup />} />
-          <Route path='/category' element={<Category />} />
-          <Route path='/timeset' element={<TimeSet />} />
-          <Route path='/home' element={<Main />} />
-          <Route path='/feed' element={<Feed />} />
-          <Route path='/mypage' element={<Mypage />} />
-          <Route path='/feed_detail/:name/:id' element={<FeedDetail />} />
-          <Route path='/timeout' element={<TimeOut/>}/>
-          <Route path='/loading' element={<Loading loading={true}/>}/>
-          <Route path='/entrance' element={<Entrance/>}/>
-          <Route path='/similar/:name/:id' element={<Similar/>}/>
-          <Route path='/category_articles/:name' element={<CategoryArticles/>}/>
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
+    <Provider store={store}>
+      <AppContent />
+    </Provider>
   )
 }
 

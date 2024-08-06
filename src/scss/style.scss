@@ -1,24 +1,28 @@
 @charset "UTF-8";
 
-@import "setting/common";
-@import "setting/reset";
-@import "section/start";
-@import "section/signup";
-@import "section/login";
-@import "section/category";
-@import "section/timeset";
-@import "section/main";
-@import "section/feed";
-@import "section/footer";
-@import "section/timemodal";
-@import "section/feedDetail";
-@import "section/feeddetailfooter";
-@import "section/mypage";
-@import "section/commentmodal";
-@import "section/updatemodal";
-@import "section/loading";
-@import "section/entrance";
-@import "section/feedDetailTimeModal";
-@import "section/similar";
-@import "section/categoryArticles";
-@import "section/IosModal";
+@import "./setting/common";
+@import "./setting/reset";
+
+@import "./mixins/flexbox";
+@import "./mixins/font";
+
+@import "./layouts/layout";
+@import "./layouts/footer";
+
+@import "./modules/registermodal";
+@import "./modules/walkstartloading";
+
+@import "./page/intro";
+@import "./page/auth/auth";
+@import "./page/auth/info";
+@import "./page/record";
+@import "./page/walk/walk";
+@import "./page/walk/result";
+@import "./page/walk/kcal";
+@import "./page/chatbot";
+@import "./page/community";
+
+@import "./page/routine";
+@import "./page/routine_set";
+@import "./page/routine_detail";
+@import "./page/routine_calendar";
